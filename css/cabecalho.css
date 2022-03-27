@@ -1,0 +1,73 @@
+.cabecalho {
+  align-items: center;
+  background-color: var(--cabecalho-mobile);
+  box-shadow: var(--cabecalho-sombra);
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 16px;
+}
+
+.cabecalho__menu i::before {
+  content: "\e904";
+}
+
+.cabecalho__logo {
+  width: 40px;
+}
+
+.cabecalho__perfil {
+  display: none;
+}
+
+.cabecalho__divisor {
+  display: none;
+  margin: 0 32px;
+  height: 100%;
+  border-left: 1px solid var(--fonte-alternativa);
+  width: 0;
+}
+
+.cabecalho__notificacao i::before {
+  content: "\e906";
+}
+
+@media screen and (min-width: 1440px) {
+  .cabecalho {
+    background-color: var(--cabecalho);
+    justify-content: flex-end;
+    grid-area: 1 / span 2;
+    padding: 24px 56px;
+  }
+
+  .cabecalho__menu,
+  .cabecalho__logo {
+    display: none;
+  }
+
+  .cabecalho__perfil {
+    align-items: center;
+    column-gap: 0.5rem;
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+  }
+
+  .cabecalho__perfil__imagem {
+    border-radius: 1rem;
+    height: 2rem;
+    width: 2rem;
+  }
+
+  .cabecalho__perfil__nome {
+    color: var(--fonte-alternativa);
+  }
+
+  .cabecalho__perfil__dropdown::before {
+    content: "\e90d";
+    line-height: 24px;
+  }
+
+  .cabecalho__divisor {
+    display: block;
+  }
+}

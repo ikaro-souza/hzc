@@ -1,0 +1,300 @@
+:root {
+  --botao: #0480dc;
+  --cabecalho: #1d232a;
+  --cabecalho-mobile: #15191c;
+  --cabecalho-sombra: 0px 4px 4px rgba(0, 0, 0, 0.16);
+  --cartao: #2c343a;
+  --corpo: #1d232a;
+  --fonte: #ffffff;
+  --fonte-alternativa: #95999c;
+  --link: #0480dc;
+  --menu-lateral: #15191c;
+}
+
+@font-face {
+  font-family: "icones";
+  src: url(../assets/fonts/icones.ttf);
+}
+
+body {
+  background-color: var(--corpo);
+  color: var(--fonte);
+  font-family: "Open Sans", "icones", -apple-system, sans-serif;
+}
+
+*::before,
+*::after {
+  font-size: 24px;
+  vertical-align: middle;
+}
+
+main {
+  display: grid;
+  gap: 16px;
+  padding: 24px 16px;
+}
+
+.titulo-pagina {
+  font-size: 1.625rem;
+  font-weight: bold;
+}
+
+.acao {
+  color: var(--link);
+}
+
+/*#region cartões*/
+.cartao {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--cartao);
+  border-radius: 16px;
+  width: 100%;
+}
+
+.cartao__imagem {
+  height: 160px;
+  width: 100%;
+}
+
+.cartao__cabecalho {
+  grid-area: 1 / span 2;
+}
+
+.cartao__conteudo {
+  align-items: center;
+  display: grid;
+  flex: 1;
+  gap: 8px;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  padding: 16px;
+}
+
+.cartao__titulo {
+  font-size: 1.125rem;
+  font-weight: bold;
+  line-height: normal;
+}
+
+.cartao__info {
+  align-self: center;
+  color: var(--fonte-alternativa);
+  column-gap: 8px;
+  display: grid;
+  font-size: 0.875rem;
+  grid-area: 2 / 1;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: 1fr;
+}
+
+.cartao__info > *::before {
+  font-size: 1.125em;
+  margin-right: 4px;
+}
+
+.cartao__info--tempo::before {
+  content: "\e90c";
+}
+
+.cartao__info--visualizacoes::before {
+  content: "\e90f";
+}
+.cartao__info--preco::before {
+  content: "\e905";
+}
+
+.cartao__info--perfil {
+  color: var(--fonte-alternativa);
+  font-size: 0.875rem;
+}
+
+.cartao__botao {
+  align-items: center;
+  align-self: center;
+  background-color: var(--botao);
+  border-radius: 8px;
+  color: var(--fonte);
+  display: flex;
+  font-size: 0.875rem;
+  grid-area: 2 / 2;
+  height: 40px;
+  justify-self: flex-end;
+  justify-content: center;
+  padding: 8px 16px;
+  width: 40px;
+}
+
+.cartao__botao--destaque {
+  grid-area: 3 / span 2;
+  width: 100%;
+}
+.cartao__botao--destaque::before {
+  margin-right: 8px;
+}
+
+.cartao__botao--play::before {
+  content: "\e90b";
+  font-size: 24px;
+}
+.cartao__botao--comprar::before {
+  content: "\e901";
+}
+
+/*#region cartao destaque*/
+.cartao--destaque {
+  margin: 0 0 16px 0;
+}
+.cartao--destaque .cartao__imagem {
+  height: 306px;
+}
+.cartao--destaque .cartao__conteudo {
+  grid-template-rows: auto auto auto;
+}
+.cartao__destaque {
+  padding: 0.5em 0;
+}
+.cartao--destaque .cartao__titulo {
+  margin: 8px 0;
+}
+.cartao--comprar {
+  margin: 16px 0;
+}
+/*#endregion*/
+
+/* #region cartao recentes */
+.cartao--recentes {
+  display: none;
+}
+.cartao--recentes .cartao__conteudo {
+  grid-template-rows: auto 1fr;
+}
+.cartao--recentes .cartao__cabecalho {
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
+}
+.cartao--recentes .acao {
+  font-size: 0.875rem;
+}
+.cartao__lista {
+  display: grid;
+  grid-area: 2 / span 2;
+  grid-template-columns: 100%;
+  grid-auto-rows: auto;
+  row-gap: 16px;
+}
+.cartao__lista__item {
+  width: 100%;
+}
+.cartao__lista__item__conteudo {
+  display: grid;
+  column-gap: 16px;
+  grid-template-columns: auto 1fr;
+}
+.cartao__lista__item__imagem {
+  align-self: center;
+  border-radius: 4px;
+  grid-area: span 2 / 1;
+  height: 2rem;
+  width: 2rem;
+}
+.cartao__lista__item__texto {
+  align-self: center;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+}
+.cartao__lista__item__titulo {
+  font-weight: bold;
+}
+.cartao__lista__item__perfil {
+  color: var(--fonte-alternativa);
+}
+/* #endregion */
+
+/* #region cartao artes  */
+.cartao--artes {
+  display: none;
+}
+/* #endregion */
+
+/*#endregion*/
+
+.sessao__titulo {
+  color: var(--fonte);
+  font-size: 1.125rem;
+  font-weight: bold;
+  line-height: normal;
+}
+
+@media screen and (min-width: 1440px) {
+  body {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr;
+  }
+
+  main {
+    gap: 24px 32px;
+    grid-auto-rows: auto;
+    grid-template-columns: repeat(4, auto);
+    padding: 24px 56px;
+  }
+
+  .titulo-pagina {
+    grid-area: 1 / span 4;
+  }
+
+  .cartao {
+    border-radius: 16px;
+  }
+
+  .cartao--destaque .cartao__imagem {
+    height: 336px;
+  }
+
+  .cartao--destaque:first-of-type {
+    grid-area: 2 / span 3;
+    margin: 0;
+  }
+  .cartao__botao--destaque {
+    justify-self: flex-start;
+    grid-area: 3 / 1;
+    width: auto;
+  }
+
+  .cartao--recentes {
+    display: block;
+    grid-area: 2 / 4;
+    height: 464px;
+  }
+
+  .sessao--mais-vistos.sessao__titulo {
+    grid-area: 3 / span 4;
+  }
+
+  .cartao--mais-vistos {
+    grid-area: 4 / auto;
+    height: 320px;
+  }
+
+  .cartao--artes {
+    display: block;
+    grid-area: 5 / 1;
+    height: max-content;
+  }
+
+  .cartao--comprar {
+    grid-area: 5 / 2 / 5 / 5;
+    height: 544px;
+    margin: 0;
+  }
+
+  .sessao--camisas.sessao__titulo {
+    grid-area: 6 / span 4;
+  }
+
+  .cartao--camisa {
+    grid-area: 7 / auto;
+  }
+}
